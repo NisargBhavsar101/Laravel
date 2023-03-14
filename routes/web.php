@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\TournamentController;
+use App\Http\Controllers\TeamController;
+
+use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +21,5 @@ Route::get('/', function () {
     return view('welcome');
 });
   
-
+Route::resource('teams',TeamController::class);
 Route::resource('tournament',TournamentController::class);
