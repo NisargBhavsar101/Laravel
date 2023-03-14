@@ -50,7 +50,7 @@
             @csrf
             <div class="row g-3">    
                 <div class="mb-3 col">
-                    <label class="form-label">Enter Team Name</label>
+                    <label class="form-label">Enter  Name</label>
                     <input type="Text" class="form-control @error('tournament_name') is-invalid @enderror" name="tournament_name">
                     @error('tournament_name')
                         <span class="invalid-feedback" role="alert">

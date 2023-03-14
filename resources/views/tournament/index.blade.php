@@ -33,7 +33,7 @@
         <a href="{{route('tournament.create')}}" class="btn btn-warning text-dark btn-sm">ADD Tournament</a>
     </div>
     <div class="current-template">
-        <a href="{{route('tournament.create')}}" class="btn btn-warning text-dark btn-sm">Create Team</a>
+        <a href="{{route('teams.create')}}" class="btn btn-warning text-dark btn-sm">Create Team</a>
     </div>
 </header>
 @php $id =1;  @endphp
@@ -56,7 +56,7 @@
             <td>
                 <div class="row">
                     <a href="{{route('tournament.edit',$list->id)}}" target="_blank" class="col btn btn-primary me-3">Edit</a>
-                    <a href="" target="_blank" class="col btn btn-light">Result</a>
+                    <a href="{{route('tournament.show',$list->id)}}" target="_blank" class="col btn btn-light">Result</a>
                     <form action="{{route('tournament.destroy',$list->id)}}" method="post" class="col">
                         @method('delete')
                         @csrf

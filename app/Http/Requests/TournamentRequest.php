@@ -23,7 +23,7 @@ class TournamentRequest extends FormRequest
     {
         return [
             'tournament_name' =>'required|unique:tournament',
-            'team_size' =>'required|min:4|max:8',
+            'team_size' =>'required|max:8',
         ];
     }
 }
