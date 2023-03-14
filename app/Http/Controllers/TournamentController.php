@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TournamentRequest;
+use App\Models\Team;
 use App\Models\Tournament;
 
 class TournamentController extends Controller
@@ -40,7 +41,9 @@ class TournamentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $teams = Team::find($id);
+
+        return view('tournament.view',compact('teams'));
     }
 
     /**

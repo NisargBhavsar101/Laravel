@@ -26,10 +26,10 @@
 <body>
     <header id="header" class="" style="margin-top:-27px;">
         <div class="logo">
-            <h5 class="text-warning">Create Your Tournament</h5>
+            <h5 class="text-warning">Edit Team</h5>
         </div>
         <div class="current-template">
-            <a href="{{route('tournament.index')}}" class="btn btn-warning text-dark btn-sm">View Tournament</a>
+            <a href="{{route('teams.index')}}" class="btn btn-warning text-dark btn-sm">View Teams</a>
         </div>
         <div class="col-12 p-0 fixed-top d-flex justify-content-end flex-row mt-2">
             @if (session('success'))
@@ -46,12 +46,13 @@
         </div>
     </header>
     <div class="mt-5">
-        <form class="text-light" action="{{route('tournament.store')}}" method="post">
+        <form class="text-light" action="{{route('teams.update',$edit->id)}}" method="post">
+            @method('patch')
             @csrf
             <div class="row g-3">    
                 <div class="mb-3 col">
-                    <label class="form-label">Enter  Name</label>
-                    <input type="Text" class="form-control @error('tournament_name') is-invalid @enderror" name="tournament_name">
+                    <label class="form-label">Team Name</label>
+                    <input type="Text" class="form-control @error('tournament_name') is-invalid @enderror" name="tournament_name" value="{{$edit->team_name}}">
                     @error('tournament_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -59,8 +60,8 @@
                     @enderror
                 </div>
                 <div class="mb-3 col">
-                    <label class="form-label">Enter Team Size</label>
-                    <input type="number" class="form-control @error('team_size') is-invalid @enderror" name="team_size">
+                    <label class="form-label">Team Size</label>
+                    <input type="number" class="form-control @error('team_size') is-invalid @enderror" name="team_size" value="{{$edit->size}}">
                     @error('team_size')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
